@@ -1,0 +1,28 @@
+<template>
+  <table class="slds-table slds-table_bordered slds-table_cell-buffer records-table">
+    <thead>
+      <tr>
+        <th>Account Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Total Fine Paid</th>
+        <th>Number of Books Borrowed till date</th>
+        <th>Number of overdue Books</th>
+        <th>Last book borrowed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <template for:each={records} for:item="record" for:index="index">
+        <tr key={record.id} class={record.rowColor}>
+          <td>{record.Name}</td>
+          <td>{record.Phone}</td>
+          <td>{record.PersonEmail}</td>
+          <td>{record.Total_Fine_Paid__c}</td>
+          <td>{record.Number_of_Books_Borrowed_till_date__c}</td>
+          <td>{record.Number_of_overdue_Books__c}</td>
+          <td>{record.Last_book_borrowed__c}</td>
+        </tr>
+      </template>
+    </tbody>
+  </table>
+</template>

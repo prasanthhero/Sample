@@ -1,0 +1,25 @@
+<template>
+<template if:true={disabled}> 
+<div style="height: 500px;">
+  <lightning-input type="search" label="Book Name" onchange={handleChange} value={Name}></lightning-input>
+  <div class="slds-grid slds-wrap">
+  <template if:true={ProductList}>
+    <template for:each={ProductList} for:item="item">
+    <lightning-card key={item.Id}>
+    <div class="slds-col slds-size_1-of-1">
+    <div class="slds-m-top_medium slds-m-left_x-small">
+    <img src={item.ImageUrl__c} alt="Image" height="50px" width="200px" />
+    </div>
+    <p>Book Name: {item.Name}</p>
+    <p>{item.Description}</p>
+    <p>Price: {item.Unit_Cost__c}</p>
+    <lightning-input type="Number" label="Quantity" value={item.Quantity__c}></lightning-input>
+    <lightning-button variant="neutral" label="Add to Cart" onclick={oppaction} data-fieldid={item.Id}></lightning-button>
+    </div>
+    </lightning-card>
+    </template>
+    </template>
+    </div>
+    </div>
+  </template>
+</template>
